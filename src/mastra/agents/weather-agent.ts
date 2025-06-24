@@ -4,6 +4,8 @@ import { Memory } from '@mastra/memory';
 import { LibSQLStore } from '@mastra/libsql';
 import { weatherTool } from '../tools/weather-tool';
 
+const llm = ollama('llama3');
+
 export const weatherAgent = new Agent({
   name: 'Weather Agent',
   instructions: `
@@ -18,7 +20,7 @@ export const weatherAgent = new Agent({
 
       Use the weatherTool to fetch current weather data.
 `,
-  model: ollama('qwen3:8b'),
+  model: llm,
   tools: { weatherTool },
   memory: new Memory({
     storage: new LibSQLStore({

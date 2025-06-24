@@ -3,7 +3,7 @@ import { Agent } from '@mastra/core/agent';
 import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
 
-const llm = ollama('qwen3:8b');
+const llm = ollama('llama3');
 
 const agent = new Agent({
   name: 'Weather Agent',
